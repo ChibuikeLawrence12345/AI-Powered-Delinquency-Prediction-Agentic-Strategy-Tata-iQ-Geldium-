@@ -112,6 +112,7 @@ Outcome: Text-based portals remove the "social shame" of debt, leading to higher
 
 (
 create table delinquency_data_standardized
+
 (Customer_ID varchar,
 
 Age int, Income int,

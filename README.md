@@ -113,18 +113,31 @@ Outcome: Text-based portals remove the "social shame" of debt, leading to higher
 (
 create table delinquency_data_standardized
 (Customer_ID varchar,
-Age int, Income int,	
-Credit_Score int, 
-Credit_Utilization float,	
-Missed_Payments int, 
+
+Age int, Income int,
+
+Credit_Score int,
+
+Credit_Utilization float,
+
+Missed_Payments int,
+
 Delinquent_Account int,
-Loan_Balance int, 
+
+Loan_Balance int,
+
 Debt_to_Income_Ratio float,
+
 Employment_Status text,
-Account_Tenure int,	
+
+Account_Tenure int,
+
 Credit_Card_Type text,
+
 Location text,
+
 Month_1 varchar, Month_2 varchar, Month_3 varchar,
+
 Month_4 varchar, Month_5 varchar, Month_6 varchar);
 
 select * from delinquency_data_standardized;
@@ -155,21 +168,31 @@ CSV HEADER;
 
 (
 import pandas as pd
+
 import numpy as np
+
 import matplotlib.pyplot as plt
+
 from sklearn.model_selection import train_test_split
+
 from sklearn.ensemble import RandomForestClassifier
+
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
 from sklearn.impute import SimpleImputer
+
 from sklearn.compose import ColumnTransformer
+
 from sklearn.metrics import classification_report, ConfusionMatrixDisplay
-from imblearn.pipeline import Pipeline as ImbPipeline 
+
+from imblearn.pipeline import Pipeline as ImbPipeline
+
 from imblearn.over_sampling import SMOTE
 
-# 1. Load Data (Update path as needed)
+ 1. Load Data (Update path as needed)
 df = pd.read_csv('/kaggle/input/delinquency-v3/delinquency_data.csv')
 
-# 2. Setup Features
+ 2. Setup Features
 target = 'delinquent_account'
 numeric_features = ['age', 'income', 'credit_score', 'loan_balance', 'debt_to_income_ratio', 'credit_utilization']
 categorical_features = ['employment_status', 'location']
@@ -181,10 +204,10 @@ else:
 
 X = df[numeric_features + categorical_features]
 
-# 3. Stratified Split
+ 3. Stratified Split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-# 4. Preprocessing
+ 4. Preprocessing
 preprocessor = ColumnTransformer(transformers=[
     ('num', ImbPipeline(steps=[
         ('imputer', SimpleImputer(strategy='median')),
@@ -196,7 +219,7 @@ preprocessor = ColumnTransformer(transformers=[
     ]), categorical_features)
 ])
 
-# 5. Pipeline with SMOTE and Random Forest
+ 5. Pipeline with SMOTE and Random Forest
 model_pipeline = ImbPipeline(steps=[
     ('preprocessor', preprocessor),
     ('smote', SMOTE(random_state=42, sampling_strategy=1.0)), 
@@ -209,26 +232,26 @@ model_pipeline = ImbPipeline(steps=[
     ))
 ])
 
-# 6. Fit
+ 6. Fit
 model_pipeline.fit(X_train, y_train)
 
-# 7. RECOMMENDATION: Adjusting Threshold to 0.35 for Business Balance
+ 7. RECOMMENDATION: Adjusting Threshold to 0.35 for Business Balance
 y_probs = model_pipeline.predict_proba(X_test)[:, 1]
 risk_threshold = 0.35
 y_pred_adj = (y_probs >= risk_threshold).astype(int)
 
-# 8. Evaluation
+ 8. Evaluation
 print(f"--- Business-Optimized Forest (Threshold: {risk_threshold}) ---")
 print(classification_report(y_test, y_pred_adj))
 
-# 9. Final Visualizations
+ 9. Final Visualizations
 fig, ax = plt.subplots(1, 2, figsize=(16, 6))
 
-# Confusion Matrix
+ Confusion Matrix
 ConfusionMatrixDisplay.from_predictions(y_test, y_pred_adj, cmap='YlGnBu', ax=ax[0])
 ax[0].set_title(f"Confusion Matrix (Threshold: {risk_threshold})")
 
-# Feature Importance
+ Feature Importance
 ohe_cols = model_pipeline.named_steps['preprocessor'].named_transformers_['cat'].named_steps['onehot'].get_feature_names_out(categorical_features)
 all_cols = numeric_features + list(ohe_cols)
 importances = model_pipeline.named_steps['classifier'].feature_importances_

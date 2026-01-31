@@ -1,4 +1,4 @@
-# AI-Powered-Delinquency-Prediction-Agentic-Strategy-Tata-iQ-Geldium-
+# AI-Powered-Delinquency-Prediction-Agentic-Strategy-
 
 ## Project Overview 
 As a AI Transformation Consultant in this Tata iQ job simulation, I developed an end-to-end delinquency management system for Geldium. This project transforms debt management at Geldium from a reactive manual process into a proactive, intelligent workflow. By performing initial data standardization in PostgreSQL and building an optimized Random Forest pipeline in Python, I created a system that balances predictive power with the transparency required for FinTech compliance.
@@ -164,7 +164,19 @@ Retraining Pipeline: Automate the PostgreSQL-to-Python ETL process to retrain th
 
 ## Project Links
 
-- [Interactive Power BI Dashboard]()
+- [raw dataset](https://1drv.ms/x/c/B6F01BA262EFC1A3/IQAVvRkDf5ktT48QAvhMpSqgAawOr06KxtLKsjPfO2AKxMg)
+
+- [cleaned dataset](https://1drv.ms/x/c/B6F01BA262EFC1A3/IQCcREr7mk7kR6HQKv4yJoI8AQTmKKRpN3G86YB-pJReidQ)
+
+- [risk model](https://1drv.ms/u/c/B6F01BA262EFC1A3/IQCBwlxjbUtESLWRAY9ybnhjASLM8yP1UuspQhWKok19k5c)
+
+- [requirements](https://1drv.ms/t/c/B6F01BA262EFC1A3/IQDqooeA2XCNQqlnvqfUw_wBAequ0SUZyUHZbaWRLc8Lgtk)
+
+- [confusion matrix visual](https://1drv.ms/i/c/B6F01BA262EFC1A3/IQCHCFhXJlhKR6wVsSutxz6nAaCmZqwKzuLw_7CFmWOubmM)
+
+- [standardized sql file](https://1drv.ms/u/c/B6F01BA262EFC1A3/IQBYEgm_WWqbTLa6zDB7w2exAViiJqqvaNHLCLcODxCsSoY)
+
+- [standardization sql script](https://1drv.ms/t/c/B6F01BA262EFC1A3/IQAq-hlLsuxsTYPCyPWQWEGLAZ-7lJKgZaKIDd68Ad7_tOY)
 
 ---
 

@@ -321,6 +321,12 @@ Retraining Pipeline: Automate the PostgreSQL-to-Python ETL process to retrain th
 
 ---
 
+## Project Links
+
+- [Interactive Power BI Dashboard]()
+
+---
+
 ## Contact
 
 For questions or collaborations, contact:

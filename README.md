@@ -108,7 +108,7 @@ Outcome: Text-based portals remove the "social shame" of debt, leading to higher
 ---
 
 <details>
-<summary><b>Click to expand: sql standardization script</b></summary>
+<summary><b>Click to expand: SQL Standardization Script</b></summary>
 
 (
 create table delinquency_data_standardized
@@ -241,8 +241,6 @@ plt.tight_layout()
 plt.show())
 
 </details>
-
----
 
 <details>
 <summary><b>Click to expand: Detailed Model Hyperparameters</b></summary>

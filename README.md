@@ -1,4 +1,4 @@
-# AI-Powered-Delinquency-Prediction-Agentic-Strategy-
+# AI Powered Delinquency Prediction Agentic Strategy Tata iQ/Geldium 
 
 ## Project Overview 
 As a AI Transformation Consultant in this Tata iQ job simulation, I developed an end-to-end delinquency management system for Geldium. This project transforms debt management at Geldium from a reactive manual process into a proactive, intelligent workflow. By performing initial data standardization in PostgreSQL and building an optimized Random Forest pipeline in Python, I created a system that balances predictive power with the transparency required for FinTech compliance.
